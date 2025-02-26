@@ -8,16 +8,37 @@
   <title>Bikewatching</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
-
 </head>
 <body>
-  <h1>🚴🏼‍♀️ Bikewatching</h1>
+
+  <header>
+    <h1>🚴🏼‍♀️ Bikewatching</h1>
+    <label>
+      Filter by time: 
+      <input type="range" id="time-slider" min="-1" max="1440" value="-1">
+      <time id="selected-time"></time>
+      <em id="any-time">(any time)</em>
+    </label>
+  </header>
+
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
   <script src="https://d3js.org/d3.v7.min.js"></script>
 
-  
   <div id="map">
     <svg></svg>
+  </div>
+
+  <div class="legend">
+    <div class="legend-title">Legend:</div>
+    <div class="legend-item" style="--departure-ratio: 1">
+      <span class="legend-swatch"></span> More departures
+    </div>
+    <div class="legend-item" style="--departure-ratio: 0.5">
+      <span class="legend-swatch"></span> Balanced
+    </div>
+    <div class="legend-item" style="--departure-ratio: 0">
+      <span class="legend-swatch"></span> More arrivals
+    </div>
   </div>
   
   <script src="map.js"></script>
